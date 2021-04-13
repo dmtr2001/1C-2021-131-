@@ -38,11 +38,13 @@ public:
 class Level2 {
 public:
 	int id;
+	int priority;
 	string name;
 	vector < vector<int>> connections;
 
 	Level2() {
 		id = 0;
+		priority = 0;
 		name = "No name";
 	}
 
@@ -393,6 +395,9 @@ int main() {
 	vector<Level3> levels3;
 	vector<Level4> levels4;
 	vector<Level5> levels5;
+	int chooseCourses3 [3];
+	int chooseCourses5;
+	int minNomberOfCourses;
 
 	//ввод таблицы (количество курсов в уровне + список курсов со всей нобходимой информацией)
 	
@@ -447,6 +452,23 @@ int main() {
 	enterlevels5(&levels5, k);
 	//проверка ввода
 	checklevels5(&levels5, k);
+
+
+	//ввод приоритетов у курсов второго уровня
+	for (int i = 0; i < levels2.size(); i++) {
+		cin >> levels2[i].priority;
+	}
+
+	//ввод id выбранных курсов 3 уровня
+	for (int i = 0; i < 3; i++) {
+		cin >> chooseCourses3[i];
+	}
+
+	//ввод id выбранного курса 5 уровня
+	cin >> chooseCourses5;
+
+	//ввод минимаьлного числа курсов в семестр
+	cin >> minNomberOfCourses;
 
 	return 0;
 }
